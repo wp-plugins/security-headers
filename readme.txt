@@ -11,7 +11,7 @@ Plug-in to ease the setting of TLS headers for HSTS and similar
 
 == Description ==
 
-TLS is growing in complexity. Server Name Indication now means HTTPS sites
+TLS is growing in complexity. Server Name Indication (SNI) now means HTTPS sites
 may be on shared IP addresses, or otherwise restricted. For these
 servers it is handy to be able to set desired headers without access to
 the web servers configuration or using .htaccess file.
@@ -30,7 +30,7 @@ and disallowing bypass of certificate warnings for the site.
 
 Disabling content sniffing is mostly of interest for sites that allow users to upload files of specific types, but that browsers might be silly enough to interpret of some other type, thus allowing unexpected attacks.
 
-XSS protection re-enabled XSS protection if the user has disabled it for the site.
+XSS protection re-enabled XSS protection for the site, if the user has disabled it previously.
 
 == Installation ==
 1. Upload \"security_headers.php\" to the \"/wp-content/plugins/\" directory.
@@ -41,6 +41,7 @@ XSS protection re-enabled XSS protection if the user has disabled it for the sit
 = 0.4 =
 
 License change
+Clarify wording for XSS protection in readme
 
 = 0.3 =
 
@@ -57,4 +58,5 @@ Added Sonarqube file and formatting changes
 
 = 0.4 =
 * License GPL v2 or later
+* Clarify text in readme
 
