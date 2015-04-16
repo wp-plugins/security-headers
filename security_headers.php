@@ -6,7 +6,7 @@
  * Version: 0.2
  * Author: Simon Waters (Surevine Ltd)
  * Author URI: http://waters.me/
- * License: GPL2
+ * License: GPL2 or any later version
  */
 
 function security_headers_insert() {

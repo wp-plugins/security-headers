@@ -4,7 +4,7 @@ Tags: TLS,HTTPS,HSTS,nosniff
 Requires at least: 3.8.1
 Tested up to: 3.8.1
 Stable tag: trunk
-License: GPLv2
+License: GPLv2 or any later version
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Plug-in to ease the setting of TLS headers for HSTS and similar
@@ -38,6 +38,10 @@ XSS protection re-enabled XSS protection if the user has disabled it for the sit
 
 == Changelog ==
 
+= 0.4 =
+
+License change
+
 = 0.3 =
 
 Prepare for release
@@ -51,6 +55,6 @@ Added Sonarqube file and formatting changes
 
 == Upgrade Notice ==
 
-= 0.2 =
-* Code quality work
+= 0.4 =
+* License GPL v2 or later
 
