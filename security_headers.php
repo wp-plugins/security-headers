@@ -3,7 +3,7 @@
  * Plugin Name: HTTP Headers
  * Plugin URI: http://surevine.com/
  * Description: Sets security related headers (HSTS etc)
- * Version: 0.2
+ * Version: 0.4
  * Author: Simon Waters (Surevine Ltd)
  * Author URI: http://waters.me/
  * License: GPL2 or any later version
