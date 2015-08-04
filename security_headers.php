@@ -3,7 +3,7 @@
  * Plugin Name: HTTP Headers
  * Plugin URI: http://surevine.com/
  * Description: Sets security related headers (HSTS etc)
- * Version: 0.4
+ * Version: 0.5
  * Author: Simon Waters (Surevine Ltd)
  * Author URI: http://waters.me/
  * License: GPL2 or any later version
@@ -63,7 +63,7 @@ register_deactivation_hook(__FILE__, 'security_headers_deactivate');
 
 function security_headers_display_form() {
     echo '<div class="wrap">';
-    echo '<h2>Options for HTTP Headers</h2>';
+    echo '<h1>Options for HTTP Headers</h1>';
     echo '<form action="options.php" method="POST">';
     settings_fields('security_group');
     do_settings_sections('security_headers');
@@ -78,7 +78,7 @@ function security_headers_settings() {
     add_settings_field( 'field_HSTS_time', 'HSTS Time to live (seconds)', 'field_HSTS_time_callback', 'security_headers', 'section_HSTS');
     add_settings_field( 'field_HSTS_subdomain', 'HSTS to include subdomains', 'field_HSTS_subdomain_callback', 'security_headers', 'section_HSTS');
     add_settings_field( 'field_HSTS_nosniff', 'Disable content sniffing', 'field_HSTS_nosniff_callback', 'security_headers', 'section_HSTS');
-    add_settings_field( 'field_HSTS_xss', 'Enable Chrome XSS protection', 'field_HSTS_xss_callback', 'security_headers', 'section_HSTS');
+    add_settings_field( 'field_HSTS_xss', 'Block suspected XSS', 'field_HSTS_xss_callback', 'security_headers', 'section_HSTS');
 }
 add_action('admin_init', 'security_headers_activate');
 add_action('admin_menu', 'security_headers_settings');
@@ -88,6 +88,7 @@ function section_HSTS_callback() {
     echo '<p>We recommend you enable it with a small time to live (say 300s) initially, and increase after testing the site.</p>';
     echo '<p>A blank field means no header, "0" means remove HSTS, and an integer is a time in seconds</p>';
     echo '<p>Include subdomains means all subdomains will use HTTPS.<br> Beware if serving "example.com" from server usually known as "www.example.com" this would mean any subdomain of "example.com" to someone visiting via that name if the certificate covers it. </p>';
+    echo '<p>The default behaviour in most browsers on detecting a suspected cross site scripting attack is to sanitise the response, meaning the attack may go undetected, the &quot;Block suspected XSS&quot; option re-enables the XSS auditor if the user has disabled it, and sets it to block pages it believes are being attacked rather than sanitising them.</p>';
 }
 
 function field_HSTS_time_callback() {
